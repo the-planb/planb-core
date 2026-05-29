@@ -4,6 +4,8 @@ parameters:
     tmpDir: var/cache/phpstan
     paths:
         - src
+    ignoreErrors:
+        - identifier: "trait.unused"
 
 services:
     -
