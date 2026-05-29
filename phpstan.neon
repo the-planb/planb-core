@@ -1,0 +1,6 @@
+parameters:
+    parallel:
+        maximumNumberOfProcesses: 4
+    tmpDir: var/cache/phpstan
+    paths:
+        - src

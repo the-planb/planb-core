@@ -1,0 +1,9 @@
+/.idea
+/var
+/vendor
+/bin
+/.phpunit.cache
+/docs/coverage
+/tools
+.php-cs-fixer.cache
+.phpunit.result.cache

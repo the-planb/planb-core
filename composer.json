@@ -1,0 +1,37 @@
+{
+  "name": "planb/core",
+  "description": "planb core utils",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "jmpantoja",
+      "email": "jmpantoja@gmail.com"
+    }
+  ],
+  "scripts": {
+    "dump": "composer dump-autoload --optimize"
+  },
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "PlanB\\Core\\": "src/"
+    }
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "require": {
+    "php": ">=8.5",
+    "ext-ctype": "*",
+    "ext-iconv": "*",
+    "dg/bypass-finals": "^1.8",
+    "jetbrains/phpstorm-attributes": "^1.0",
+    "symfony/filesystem": "^8.1"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^8.0",
+    "phpunit/phpunit": "^13.0",
+    "rector/rector": "^2.4"
+  }
+}
