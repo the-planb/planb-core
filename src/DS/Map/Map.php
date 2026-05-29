@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace PlanB\Core\DS\Map;
 
+use PlanB\Core\DS\Contract\GroupInterface;
 use PlanB\Core\DS\Contract\MapInmutableInterface;
+use PlanB\Core\DS\Traits\GroupTrait;
 use PlanB\Core\DS\Traits\MapInmutableTrait;
 
 /**
@@ -13,11 +15,15 @@ use PlanB\Core\DS\Traits\MapInmutableTrait;
  * @extends TypedMap<TValue>
  *
  * @implements MapInmutableInterface<array-key,TValue>
+ * @implements GroupInterface<array-key,TValue>
  */
-final class Map extends TypedMap implements MapInmutableInterface
+final class Map extends TypedMap implements MapInmutableInterface, GroupInterface
 {
     /** @use MapInmutableTrait<array-key,TValue> */
     use MapInmutableTrait;
+
+    /** @use GroupTrait<array-key,TValue> */
+    use GroupTrait;
 
     /**
      * @template TInputKey of array-key
