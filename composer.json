@@ -16,6 +16,14 @@
   "autoload": {
     "psr-4": {
       "PlanB\\Core\\": "src/"
+    },
+    "files": [
+      "src/Type/Resources/functions/types.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PlanB\\Core\\Tests\\Unit\\": "tests/Unit/"
     }
   },
   "config": {
