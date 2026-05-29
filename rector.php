@@ -22,7 +22,9 @@ return RectorConfig::configure()
     ->withSkip([
         RemoveNonExistingVarAnnotationRector::class,
         RemoveParentDelegatingConstructorRector::class => [
-            __DIR__ . '/tests/Unit/DS/CollectionTest.php'
+            __DIR__ . '/tests/Unit/DS/CollectionTest.php',
+            __DIR__ . '/tests/Unit/DS/Map/MapTest.php',
+            __DIR__ . '/tests/Unit/DS/Vector/VectorTest.php'
         ]
     ])
     ->withTypeCoverageLevel(0);
