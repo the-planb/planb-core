@@ -4,13 +4,21 @@ declare(strict_types=1);
 
 namespace PlanB\Core\DS\Vector;
 
+use PlanB\Core\DS\Contract\VectorInmutableInterface;
+use PlanB\Core\DS\Traits\VectorInmutableTrait;
+
 /**
  * @template TValue
  *
  * @extends TypedVector<TValue>
+ *
+ * @implements VectorInmutableInterface<TValue>
  */
-final class Vector extends TypedVector
+final class Vector extends TypedVector implements VectorInmutableInterface
 {
+    /** @use VectorInmutableTrait<TValue> */
+    use VectorInmutableTrait;
+
     /**
      * @template TInputKey of array-key
      * @template TInputValue
