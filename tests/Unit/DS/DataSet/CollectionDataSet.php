@@ -16,4 +16,19 @@ class CollectionDataSet
     {
         return [1, 2, 3, 4, 5];
     }
+
+    /**
+     * Produce un mapa base asociativo para validar operaciones
+     * de adición, reemplazo y descarte de claves específicas.
+     *
+     * @return array<string, string>
+     */
+    public static function associativeDictionary(): array
+    {
+        return [
+            'es' => 'España',
+            'fr' => 'Francia',
+            'it' => 'Italia',
+        ];
+    }
 }
