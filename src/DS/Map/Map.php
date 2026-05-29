@@ -6,8 +6,10 @@ namespace PlanB\Core\DS\Map;
 
 use PlanB\Core\DS\Contract\GroupInterface;
 use PlanB\Core\DS\Contract\MapInmutableInterface;
+use PlanB\Core\DS\Contract\MutationInterface;
 use PlanB\Core\DS\Traits\GroupTrait;
 use PlanB\Core\DS\Traits\MapInmutableTrait;
+use PlanB\Core\DS\Traits\MutationTrait;
 
 /**
  * @template TValue
@@ -16,14 +18,18 @@ use PlanB\Core\DS\Traits\MapInmutableTrait;
  *
  * @implements MapInmutableInterface<array-key,TValue>
  * @implements GroupInterface<array-key,TValue>
+ * @implements MutationInterface<array-key,TValue>
  */
-final class Map extends TypedMap implements MapInmutableInterface, GroupInterface
+final class Map extends TypedMap implements MapInmutableInterface, GroupInterface, MutationInterface
 {
     /** @use MapInmutableTrait<array-key,TValue> */
     use MapInmutableTrait;
 
     /** @use GroupTrait<array-key,TValue> */
     use GroupTrait;
+
+    /** @use MutationTrait<array-key,TValue> */
+    use MutationTrait;
 
     /**
      * @template TInputKey of array-key
