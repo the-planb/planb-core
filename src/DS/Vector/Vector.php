@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace PlanB\Core\DS\Vector;
 
 use PlanB\Core\DS\Contract\GroupInterface;
+use PlanB\Core\DS\Contract\MutationInterface;
 use PlanB\Core\DS\Contract\VectorInmutableInterface;
 use PlanB\Core\DS\Traits\GroupTrait;
+use PlanB\Core\DS\Traits\MutationTrait;
 use PlanB\Core\DS\Traits\VectorInmutableTrait;
 
 /**
@@ -16,14 +18,18 @@ use PlanB\Core\DS\Traits\VectorInmutableTrait;
  *
  * @implements VectorInmutableInterface<TValue>
  * @implements GroupInterface<int, TValue>
+ * @implements MutationInterface<int, TValue>
  */
-final class Vector extends TypedVector implements VectorInmutableInterface, GroupInterface
+final class Vector extends TypedVector implements VectorInmutableInterface, GroupInterface, MutationInterface
 {
     /** @use VectorInmutableTrait<TValue> */
     use VectorInmutableTrait;
 
     /** @use GroupTrait<int, TValue> */
     use GroupTrait;
+
+    /** @use MutationTrait<int, TValue> */
+    use MutationTrait;
 
     /**
      * @template TInputKey of array-key
