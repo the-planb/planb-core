@@ -7,10 +7,12 @@ namespace PlanB\Core\DS\Vector;
 use PlanB\Core\DS\Contract\GroupInterface;
 use PlanB\Core\DS\Contract\MutationInterface;
 use PlanB\Core\DS\Contract\QueryInterface;
+use PlanB\Core\DS\Contract\SetInterface;
 use PlanB\Core\DS\Contract\VectorInmutableInterface;
 use PlanB\Core\DS\Traits\GroupTrait;
 use PlanB\Core\DS\Traits\MutationTrait;
 use PlanB\Core\DS\Traits\QueryTrait;
+use PlanB\Core\DS\Traits\SetTrait;
 use PlanB\Core\DS\Traits\VectorInmutableTrait;
 
 /**
@@ -22,8 +24,9 @@ use PlanB\Core\DS\Traits\VectorInmutableTrait;
  * @implements GroupInterface<int, TValue>
  * @implements MutationInterface<int, TValue>
  * @implements QueryInterface<int, TValue>
+ * @implements SetInterface<int, TValue>
  */
-final class Vector extends TypedVector implements VectorInmutableInterface, GroupInterface, MutationInterface, QueryInterface
+final class Vector extends TypedVector implements VectorInmutableInterface, GroupInterface, MutationInterface, QueryInterface, SetInterface
 {
     /** @use VectorInmutableTrait<TValue> */
     use VectorInmutableTrait;
@@ -36,6 +39,9 @@ final class Vector extends TypedVector implements VectorInmutableInterface, Grou
 
     /** @use QueryTrait<int, TValue> */
     use QueryTrait;
+
+    /** @use SetTrait<int, TValue> */
+    use SetTrait;
 
     /**
      * @template TInputKey of array-key

@@ -8,10 +8,14 @@ use PlanB\Core\DS\Contract\GroupInterface;
 use PlanB\Core\DS\Contract\MapInmutableInterface;
 use PlanB\Core\DS\Contract\MutationInterface;
 use PlanB\Core\DS\Contract\QueryInterface;
+use PlanB\Core\DS\Contract\SetInterface;
+use PlanB\Core\DS\Contract\SetKeyInterface;
 use PlanB\Core\DS\Traits\GroupTrait;
 use PlanB\Core\DS\Traits\MapInmutableTrait;
 use PlanB\Core\DS\Traits\MutationTrait;
 use PlanB\Core\DS\Traits\QueryTrait;
+use PlanB\Core\DS\Traits\SetKeyTrait;
+use PlanB\Core\DS\Traits\SetTrait;
 
 /**
  * @template TValue
@@ -22,8 +26,10 @@ use PlanB\Core\DS\Traits\QueryTrait;
  * @implements GroupInterface<array-key,TValue>
  * @implements MutationInterface<array-key,TValue>
  * @implements QueryInterface<array-key,TValue>
+ * @implements SetInterface<array-key,TValue>
+ * @implements SetKeyInterface<array-key,TValue>
  */
-final class Map extends TypedMap implements MapInmutableInterface, GroupInterface, MutationInterface, QueryInterface
+final class Map extends TypedMap implements MapInmutableInterface, GroupInterface, MutationInterface, QueryInterface, SetInterface, SetKeyInterface
 {
     /** @use MapInmutableTrait<array-key,TValue> */
     use MapInmutableTrait;
@@ -36,6 +42,12 @@ final class Map extends TypedMap implements MapInmutableInterface, GroupInterfac
 
     /** @use QueryTrait<array-key,TValue> */
     use QueryTrait;
+
+    /** @use SetTrait<array-key,TValue> */
+    use SetTrait;
+
+    /** @use SetKeyTrait<array-key,TValue> */
+    use SetKeyTrait;
 
     /**
      * @template TInputKey of array-key
