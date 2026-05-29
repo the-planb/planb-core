@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
+use Rector\DeadCode\Rector\ClassMethod\RemoveParentDelegatingConstructorRector;
+use Rector\DeadCode\Rector\Node\RemoveNonExistingVarAnnotationRector;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 
@@ -16,5 +18,11 @@ return RectorConfig::configure()
         SetList::CODE_QUALITY,      // Reglas para mejorar la legibilidad y simplicidad
         SetList::DEAD_CODE,         // Elimina variables, métodos y parámetros que no se usan
         SetList::EARLY_RETURN,      // Transforma estructuras complejas en retornos tempranos
+    ])
+    ->withSkip([
+        RemoveNonExistingVarAnnotationRector::class,
+        RemoveParentDelegatingConstructorRector::class => [
+            __DIR__ . '/tests/Unit/DS/CollectionTest.php'
+        ]
     ])
     ->withTypeCoverageLevel(0);

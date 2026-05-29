@@ -4,3 +4,9 @@ parameters:
     tmpDir: var/cache/phpstan
     paths:
         - src
+
+services:
+    -
+        class: PlanB\Core\DS\PHPStan\Rule\ElementTypeRule
+        tags:
+            - phpstan.rules.rule
