@@ -18,7 +18,8 @@
       "PlanB\\Core\\": "src/"
     },
     "files": [
-      "src/Type/Resources/functions/types.php"
+      "src/Type/Resources/functions/types.php",
+      "src/DS/Resources/functions/ds.php"
     ]
   },
   "autoload-dev": {
