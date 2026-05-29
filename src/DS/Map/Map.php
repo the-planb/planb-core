@@ -7,9 +7,11 @@ namespace PlanB\Core\DS\Map;
 use PlanB\Core\DS\Contract\GroupInterface;
 use PlanB\Core\DS\Contract\MapInmutableInterface;
 use PlanB\Core\DS\Contract\MutationInterface;
+use PlanB\Core\DS\Contract\QueryInterface;
 use PlanB\Core\DS\Traits\GroupTrait;
 use PlanB\Core\DS\Traits\MapInmutableTrait;
 use PlanB\Core\DS\Traits\MutationTrait;
+use PlanB\Core\DS\Traits\QueryTrait;
 
 /**
  * @template TValue
@@ -19,8 +21,9 @@ use PlanB\Core\DS\Traits\MutationTrait;
  * @implements MapInmutableInterface<array-key,TValue>
  * @implements GroupInterface<array-key,TValue>
  * @implements MutationInterface<array-key,TValue>
+ * @implements QueryInterface<array-key,TValue>
  */
-final class Map extends TypedMap implements MapInmutableInterface, GroupInterface, MutationInterface
+final class Map extends TypedMap implements MapInmutableInterface, GroupInterface, MutationInterface, QueryInterface
 {
     /** @use MapInmutableTrait<array-key,TValue> */
     use MapInmutableTrait;
@@ -30,6 +33,9 @@ final class Map extends TypedMap implements MapInmutableInterface, GroupInterfac
 
     /** @use MutationTrait<array-key,TValue> */
     use MutationTrait;
+
+    /** @use QueryTrait<array-key,TValue> */
+    use QueryTrait;
 
     /**
      * @template TInputKey of array-key
