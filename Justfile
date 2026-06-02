@@ -19,8 +19,8 @@ rector-dry: _dump
     tools/grumphp run --tasks=rector
 
 # Ejecuta Rector aplicando los cambios automáticos en el código
-rector-fix: _dump
-    bin/rector process
+rector-fix params="": _dump
+    bin/rector process {{params}}
 
 # Ejecuta todos los tests unitarios sin cobertura (Rápido)
 tests-run params="tests": _dump
@@ -29,6 +29,11 @@ tests-run params="tests": _dump
 # Ejecuta todos los tests unitarios sin cobertura (Rápido)
 tests-unit: _dump
     bin/phpunit --no-coverage --testsuite Unit
+
+# Ejecuta todos los tests de integración sin cobertura (Rápido)
+tests-integration: _dump
+    bin/phpunit --no-coverage --testsuite Integration
+
 
 # Ejecuta los tests activando la cobertura HTML (Requires Xdebug/PCOV)
 tests-coverage params="tests": _dump
